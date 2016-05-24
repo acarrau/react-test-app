@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Widget from './Widget';
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       txt: 'this is the state text',
-      category: 0
     }
+    this.update = this.update.bind(this)
   }
 
   update(e) {
@@ -14,25 +15,20 @@ class App extends React.Component {
   }
 
   render(){
-    let propsTxt = this.props.txt
     return <div>
-        <input type="text" onChange={this.update.bind(this)} />
-        <h1>State text: {this.state.txt} </h1>
-        <h1>Props text: {propsTxt}</h1>
+        <Widget txt={this.state.txt} cat={this.props.cat} update={this.update} />
+        <Widget txt={this.state.txt} cat={this.props.cat} update={this.update} />
       </div>
   }
 }
 
 App.propTypes = {
-  txt: React.PropTypes.string,
-  category: React.PropTypes.number.isRequired
+  cat: React.PropTypes.number.isRequired
 }
 
 App.defaultProps = {
-  txt: 'this is the default props text'
+  txt: 'this is the default props text',
+  cat: 5
 }
 
-ReactDOM.render(
-  <App category={5} txt="this is the props text" />,
-  document.getElementById('app')
-);
+export default App;
