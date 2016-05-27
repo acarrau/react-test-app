@@ -1,8 +1,10 @@
 module.exports = {
-  entry: './main.js',
+  entry: {
+    'first-components': './first-components/main.js'
+  },
   output: {
     path: './',
-    filename: 'index.js'
+    filename: '[name]/index.js'
   },
   devServer: {
     inline: true,

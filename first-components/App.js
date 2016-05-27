@@ -8,9 +8,9 @@ class App extends React.Component {
     super();
     this.state = {
       txt: 'this is the state text',
-      sliderRed: 0,
-      sliderGreen: 0,
-      sliderBlue: 0,
+      sliderRed: 128,
+      sliderGreen: 128,
+      sliderBlue: 128,
     }
     this.updateSlider = this.updateSlider.bind(this)
   }
